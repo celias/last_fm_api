@@ -42,6 +42,15 @@ export default class ApiCaller extends Component {
         console.log(event.target.value)
     }
 
+    artistInfo(url) {
+        window.location.href = `${url}`
+     //console.log(url);   
+    }
+
+    routeHandler() {
+        this.artist
+    }
+
     render(){
         console.log(this.state)
         return (
@@ -51,14 +60,14 @@ export default class ApiCaller extends Component {
                 <h1>HellO!</h1>
                 <button onClick={this.post}>POST!!</button>
 
-            <select>    
+            <select onChange={(e) => this.artistInfo(e.target.value)}>    
                 {this.state.artists[0] && 
                 
                     this.state.artists.map((bryce, spencer)  => {
                         return (
-                            //everytime I map over an array I "need" a key 
+                            //everytime I map over an array I "need" a key //bryce = artists //spencer = key
                          
-                        <option key={spencer} value={bryce.name}>{bryce.name}</option>
+                        <option  key={spencer} value={bryce.url}>{bryce.name}</option>
                         
                         )}
                     )
@@ -67,6 +76,8 @@ export default class ApiCaller extends Component {
                     }
             </select>
                 <input  type="text" onChange={this.handleInput}></input>
+                
+
           
             
             </div>
