@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 
+import IconButton from 'material-ui/IconButton';
 
 import axios from "axios"; 
-
-//import "./styles.css";
 
 export default class ApiCaller extends Component {
 
@@ -15,40 +14,38 @@ export default class ApiCaller extends Component {
 
         };
 
-        //bind something
         
-        //this.axipost=this.axipost.bind(this);
-        this.post=this.post.bind(this)
-        this.handleInput=this.handleInput.bind(this)
+    this.randomArtist=this.randomArtist.bind(this)
+    this.handleInput=this.handleInput.bind(this)
     }
+
+    //Look up lifecycle hooks!!!!
     componentDidMount() {
-    
+    //axios makes a request for data (loose interpretation)
             axios.get("/api/getApiData")
             .then(response => {
                 return this.setState({ artists: response.data.artists.artist });
                 //console.log(response.data.artists.artist);
-
             });
-        
-        
-    }
+        }
     
-    post(){
-        // this.axipost('Spencer!!!!')
-        console.log(this.state.name)
-    }
+
     handleInput(event){
         this.setState({name: event.target.value})
-        console.log(event.target.value)
+        //console.log(event.target.value)
     }
 
-    artistInfo(url) {
+    artistInfo(url){
         window.location.href = `${url}`
-     //console.log(url);   
+        //console.log(url);   
     }
 
-    routeHandler() {
+    routeHandler(){
         this.artist
+    }
+
+    randomArtist(value){
+        this.setState({ randomArtist: this.state.artists[Math.floor((Math.random() * 50))] }) 
     }
 
     render(){
@@ -57,9 +54,20 @@ export default class ApiCaller extends Component {
             <div>
 
 
-                <h1>HellO!</h1>
-                <button onClick={this.post}>POST!!</button>
+            {/* <h1>HellO!</h1> */}
+            {/* trying to generate a random artist with an onClick method */}
+            
+        <button onClick={(e) => this.randomArtist()}>Random</ button>
+        {JSON.stringify(this.state.randomArtist)}
+                
+                
 
+                
+    
+            
+          
+          
+          {/* do NOT CHANGE THIS */}
             <select onChange={(e) => this.artistInfo(e.target.value)}>    
                 {this.state.artists[0] && 
                 
@@ -69,10 +77,7 @@ export default class ApiCaller extends Component {
                          
                         <option  key={spencer} value={bryce.url}>{bryce.name}</option>
                         
-                        )}
-                    )
-                    
-                    
+                        )})
                     }
             </select>
                 <input  type="text" onChange={this.handleInput}></input>
