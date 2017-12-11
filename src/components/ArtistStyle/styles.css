@@ -1,15 +1,56 @@
 
 
  body {
+     display: flex;
+     position: relative;
      background-image: url("https://www.billboard.com/files/media/Cassette-Tapes-billboard-a-1548.jpg");
-     color: maroon;
-     box-shadow: white;
+     color: white;
  }
 
  .name {
+     width: 300px;
+     text-align: center;
+     margin-left: 795px;
+     margin-bottom: 100px;
+     margin-top: 30px;
+     float: left;
+     padding: 35px;
+     background-color: rgba(94, 100, 1, 0.767);
+     font-family: 'VT323', monospace;
+     font-size: 20px;
+     border-radius: 30px;
+     border: rgba(59, 189, 194, 0.5) solid 7px;
+ }
+
+ /* .photo {
+   
+     
+ } */
+
+ .button {
+    width: 200px;
+    margin-left: 900px;
+    margin-top: 100px;
+    color: black;
+    font-size: 24px;
+    border-radius: 10px;
+    border: rgba(59, 189, 194, 0.5) solid 3px;
+    font-family: 'VT323', monospace;
+
+ }
+
+ /* .artistName { 
+    
+ } */
+
+ .drop_down {
+     border: rgba(59, 189, 194, 0.5) solid 3px;
+     border-radius: 5px;
      display: flex;
-     background-color: white;
-     font-family: monospace;
-     justify-content: space-between;
-     justify-content: center;
+     font-size: 24px;
+     margin-left: 900px;
+     margin-top: 20px;
+     width: 200px;
+     color: black;
+     font-family: 'VT323', monospace;
  }

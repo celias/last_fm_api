@@ -86,7 +86,7 @@ export default class ApiCaller extends Component {
         {/* stringify puts artist info in string */}
          {/* generates random artist with floor random and onClick method    */}
 
-        <button onClick={(e) => this.randomArtist()}>Random Artist</ button>
+        <button className="button" onClick={(e) => this.randomArtist()}>Random Artist</ button>
 
 
         
@@ -100,12 +100,12 @@ export default class ApiCaller extends Component {
            
 
         {/* do NOT CHANGE THIS */}
-            <select className="name" onChange={(e) => this.artistInfo(e.target.value)}>    
+            <select className="drop_down" onChange={(e) => this.artistInfo(e.target.value)}>    
                 {this.state.artists[0] && 
                     this.state.artists.map((bryce, spencer)  => {
                         return (
                         //everytime I map over an array I "need" a key //bryce = artists //spencer = key
-                         <option  key={spencer} value={bryce.url}>{bryce.name}</option>
+                         <option key={spencer} value={bryce.url}>{bryce.name}</option>
                     )})
                     }
             </select>
