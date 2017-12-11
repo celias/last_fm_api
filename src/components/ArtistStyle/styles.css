@@ -1,0 +1,15 @@
+
+
+ body {
+     background-image: url("https://www.billboard.com/files/media/Cassette-Tapes-billboard-a-1548.jpg");
+     color: maroon;
+     box-shadow: white;
+ }
+
+ .name {
+     display: flex;
+     background-color: white;
+     font-family: monospace;
+     justify-content: space-between;
+     justify-content: center;
+ }
