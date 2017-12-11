@@ -62,7 +62,7 @@ export default class ApiCaller extends Component {
         console.log(this.state.addToList);
     }
 
-    // deleteItem(){
+    // removeArtist() {
 
     // }
 
@@ -72,7 +72,7 @@ export default class ApiCaller extends Component {
         return (
         <div>
             
-            <button className="button" onClick={this.state.addArtistList}>Save Artist</button>
+            <button className="button" onClick={(e) => this.addArtistList()}>Save Artist</button>
 
 
             {/* stringify puts artist info in string */}
