@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import IconButton from 'material-ui/IconButton';
+// import IconButton from 'material-ui/IconButton';
 
 import axios from "axios"; 
 
@@ -14,11 +14,11 @@ export default class ApiCaller extends Component {
         this.state = {
             artists: [],
             randomArtist: {},
-            addToList: ""
+            addToList: []
 
         };
 
-
+        this.addArtistList=this.addArtistList.bind(this)
         this.routeHandler=this.routeHandler.bind(this)
         this.artistInfo=this.artistInfo.bind(this)
         this.handleInput=this.handleInput.bind(this)   
@@ -56,50 +56,30 @@ export default class ApiCaller extends Component {
         this.setState({ randomArtist: this.state.artists[Math.floor((Math.random() * 50))] }) 
     }
 
-    // addToList(){
-    //     this.setState
-    // }
+    addArtistList(){
+        this.state.addToList.push(this.state.randomArtist);
+        
+        console.log(this.state.addToList);
+    }
 
     // deleteItem(){
 
     // }
 
     render(){
-        console.log(this.state)
-        
-        console.log(this.state.randomArtist.image, "Struggle is real!") 
+        // console.log(this.state)
+        // console.log(this.state.randomArtist.image, "Struggle is real!") 
         return (
-            <div>
+        <div>
+            
+            <button className="button" onClick={this.state.addArtistList}>Save Artist</button>
 
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        {/* stringify puts artist info in string */}
-         {/* generates random artist with floor random and onClick method    */}
-
-        <button className="button" onClick={(e) => this.randomArtist()}>Random Artist</ button>
-
-
-        
-        
-        
-        
-        
-        
-        
-                
-           
-
-        {/* do NOT CHANGE THIS */}
+            {/* stringify puts artist info in string */}
+            {/* generates random artist with floor random and onClick method    */}
+            <button className="button" onClick={(e) => this.randomArtist()}>Random Artist</ button>
+            
+            {/* DO NOT CHANGE THIS */}
             <select className="drop_down" onChange={(e) => this.artistInfo(e.target.value)}>    
                 {this.state.artists[0] && 
                     this.state.artists.map((bryce, spencer)  => {
@@ -109,7 +89,8 @@ export default class ApiCaller extends Component {
                     )})
                     }
             </select>
-                <input  type="text" onChange={this.handleInput}></input>
+                
+            <input  type="text" onChange={this.handleInput}></input>
                <ArtistStyle artist={this.state.randomArtist} />    
             </div>
         )}
